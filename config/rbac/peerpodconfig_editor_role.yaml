@@ -1,0 +1,24 @@
+# permissions for end users to edit peerpodconfigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: peerpodconfig-editor-role
+rules:
+- apiGroups:
+  - peerpod.confidentialcontainers.io.my.domain
+  resources:
+  - peerpodconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - peerpod.confidentialcontainers.io.my.domain
+  resources:
+  - peerpodconfigs/status
+  verbs:
+  - get

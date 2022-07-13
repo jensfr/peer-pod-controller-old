@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - peerpod.confidentialcontainers.io.my.domain
+  resources:
+  - peerpodconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - peerpod.confidentialcontainers.io.my.domain
+  resources:
+  - peerpodconfigs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - peerpod.confidentialcontainers.io.my.domain
+  resources:
+  - peerpodconfigs/status
+  verbs:
+  - get
+  - patch
+  - update
